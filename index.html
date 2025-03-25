@@ -61,14 +61,14 @@
         })
       }
 
-      const aid = "XUYdjcAysu";
+      const aid = "9vTcajU0pu";
 
-      loadScript('https://meta.piano.dev:3000/pn-widget/sdk.js')
+      loadScript('https://ostap-widgets-prod.piano.io/pn-widget/sdk.js')
         .then(()=>{
           const piano = new Piano(aid);
           const elementId = "ec5f49f6-bda5-4a3c-9483-f63f8ea6a1f1";
           // const elementId2 = "b574733d-3171-448b-aa78-bb19393e9c0b";
-          const elementIdOffer = "fccdceca-02c0-4a8b-afa7-c46567d55927";
+          const elementIdOffer = "2b400ad1-007d-4b52-ace2-274909e50f36";
           const elementName = "Pure";
           const elementOfferName = "Offer";
           const containerSelector = ".container-1";
@@ -178,7 +178,7 @@
               const pn$ = !window.pn ? (()=>{
                 tp = window["pn"] || [];
                 tp.push(["setAid", aid]);
-                tp.push(["setEndpoint", "https://meta.piano.dev:8443/api/v3"]);
+                tp.push(["setEndpoint", "https://buy.tinypass.com/api/v3"]);
                 tp.push(['setUsePianoIdUserProvider', true ]);
                 tp.push(['setPianoIdUrl', '/']);
                 return loadScript("https://cdn.tinypass.com/api/tinypass.min.js")
