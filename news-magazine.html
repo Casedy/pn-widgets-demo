@@ -150,7 +150,7 @@
       const applicationId = "7bFLYKurpu";
       const offerId = "OF14JI47IM9O";
 
-      Promise.all([documentReady(), loadScript('https://ostap-widgets-prod.piano.io/pn-widget/sdk.js')])
+      Promise.all([documentReady, loadScript('https://ostap-widgets-prod.piano.io/pn-widget/sdk.js')])
         .then(()=>{
           const piano = new Piano(applicationId);
           const elementIdOffer = "eb5e49ed-8af7-457f-8307-ae8a018f3f8a";
