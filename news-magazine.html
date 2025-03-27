@@ -190,11 +190,14 @@
           });
 
           elementOffer.then((inst)=>{
+            inst.listen("offerSubscribe", ({ data })=>{
+              console.log("dispatched signal", "offerSubscribe", data);
+            });
             inst.listen("startClassicCheckout", ({ data })=>{
               console.log("startClassicCheckout", data.termId)
               const pn$ = !window.pn ? (()=>{
                 tp = window["pn"] || [];
-                tp.push(["setAid", aid]);
+                tp.push(["setAid", applicationId]);
                 tp.push(["setEndpoint", "https://buy.tinypass.com/api/v3"]);
                 tp.push(['setUsePianoIdUserProvider', true ]);
                 tp.push(['setPianoIdUrl', '/']);
