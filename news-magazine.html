@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Global Chronicle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            color: #2c3e50;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .header .date {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .column {
+            padding: 15px;
+        }
+
+        .article {
+            margin-bottom: 30px;
+        }
+
+        .article img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .article h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .article p {
+            color: #444;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .usa-news {
+            border-right: 2px solid #ddd;
+            padding-right: 30px;
+        }
+
+        .china-news {
+            padding-left: 30px;
+        }
+
+        .category-label {
+            display: inline-block;
+            background-color: #c0392b;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            border-radius: 3px;
+        }
+
+        .highlight {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #c0392b;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .usa-news, .china-news {
+                border: none;
+                padding: 0;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>The Global Chronicle</h1>
+            <div class="subtitle">World News | Politics | Business | Technology</div>
+            <div class="date">Saturday, November 18, 2023 | Vol. 54 No. 12</div>
+        </header>
+
+        <main class="main-content">
+            <section class="column usa-news">
+                <div class="article">
+                    <span class="category-label">USA POLITICS</span>
+                    <h2>Biden Meets with Congressional Leaders to Avert Government Shutdown</h2>
+                    <img src="https://images.unsplash.com/photo-1610642372651-fe6e7bc209ef" alt="US Capitol">
+                    <p>WASHINGTON - President Joe Biden convened an emergency meeting with congressional leaders from both parties today in an effort to break the impasse over government funding ahead of Friday's shutdown deadline. Negotiations continue as lawmakers debate spending levels for defense and domestic programs.</p>
+                    <div class="highlight">
+                        <p>"We need to put politics aside and do what's right for the American people," Biden told reporters before entering the Oval Office meeting.</p>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <span class="category-label">TECHNOLOGY</span>
+                    <h2>NASA Announces New Moon Mission Partners</h2>
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa" alt="Moon mission">
+                    <p>CAPE CANAVERAL - NASA has selected three private companies to develop lunar landers for future Artemis missions. This move signals increased collaboration between government and commercial space sectors in the new space race.</p>
+                </div>
+            </section>
+
+            <section class="column china-news">
+                <div class="article">
+                    <span class="category-label">CHINA ECONOMY</span>
+                    <h2>Beijing Unveils New Stimulus Package to Boost Slowing Economy</h2>
+                    <img src="https://images.unsplash.com/photo-1600883004285-0b3e1a0f4a5b" alt="Beijing city">
+                    <p>BEIJING - Chinese policymakers announced a comprehensive 500 billion yuan ($68 billion) economic stimulus package today, focusing on tax cuts for small businesses and infrastructure spending. This comes amid concerns about slowing growth and the property market crisis.</p>
+                </div>
+
+                <div class="article">
+                    <span class="category-label">DIPLOMACY</span>
+                    <h2>China-US Relations: Trade Talks Resume After 6-Month Hiatus</h2>
+                    <img src="https://images.unsplash.com/photo-1588345687107-2aaf0bd5ad68" alt="Flags of US and China">
+                    <p>SHANGHAI - Senior trade officials from the United States and China began new round of negotiations today, focusing on technology transfers and tariffs. Both sides expressed cautious optimism but acknowledged significant differences remain.</p>
+                    <div class="highlight">
+                        <p>"We're committed to finding solutions that benefit both nations," said Chinese lead negotiator Vice Premier Liu He.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
