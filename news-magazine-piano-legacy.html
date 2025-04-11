@@ -168,29 +168,13 @@
             tp.push(['setUsePianoIdUserProvider', true ]);
             tp.push(['setPianoIdUrl', '/']);
             tp.push(['init', () => {
-                tp.pianoWidgets.showPianoWidget({
-                    aid: applicationId,
-                    offerId,
-                    templateId: templateIdOffer,
-                    pianoWidgetElementName: elementOfferName,
-                    containerSelector,
-                    displayMode: "inline",
-                    templateVariantId: undefined,
-                }).then(element => {
-                    element.listen("offerSubscribe", ({ data })=>{
-                      console.log("dispatched signal", "offerSubscribe", data);
-                    });
-                    element.listen("startClassicCheckout", ({ data })=>{
-                      console.log("startClassicCheckout", data.termId); 
-                        var config = {
-                          offerId: data.offerId,
-                          termId: data.termId,
-                          displayMode: 'modal'
-                        };
-                        window.pn.offer.show(config);
-                      
-                    })
-                });
+                var config = {
+                  offerId,
+                  templateId: templateIdOffer,
+                  displayMode: 'inline',
+                  containerSelector,
+                };
+                tp.offer.show(config);
             }]);
         })
     </script>
