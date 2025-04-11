@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Simple Express Static Server</title>
+    <style>
+/* @font-face { */
+/*   font-family: Roboto; */
+/*   src: url(https://test.me:3000/assets/Roboto-Bold-C485d85l.woff2) format("woff2"),url(https://test.me:3000/assets/Roboto-Bold-gIYg1m0a.woff) format("woff"); */
+/*   font-weight: 700; */
+/*   font-style: normal; */
+/*   font-display: swap */
+/* } */
+/**/
+/* @font-face { */
+/*   font-family: Roboto; */
+/*   src: url(https://test.me:3000/assets/Roboto-Regular-CUp8lEbQ.woff2) format("woff2"),url(https://test.me:3000/assets/Roboto-Regular-XEPKqOBM.woff) format("woff"); */
+/*   font-weight: 400; */
+/*   font-style: normal; */
+/*   font-display: swap */
+/* } */
+/**/
+/* @font-face { */
+/*   font-family: Roboto; */
+/*   src: url(https://test.me:3000/assets/Roboto-Medium--cGQoWUT.woff2) format("woff2"),url(https://test.me:3000/assets/Roboto-Medium-BFS8JZeR.woff) format("woff"); */
+/*   font-weight: 500; */
+/*   font-style: normal; */
+/*   font-display: swap */
+/* } */
+      body {
+        background-color: #aed09a;
+      }
+      .container-1, .container-2, .container-3 {
+        min-height: 100vh;
+        width: 600px;
+        margin: 0 auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h2 class="_pureClass_6mowy_1">
+      Test pn-widgets-1
+    </h2>
+    <div class="container-1"></div>
+    <div>=====================================</div>
+    <div class="container-2"></div>
+    <div>=====================================</div>
+    <div class="container-3"></div>
+    <div>=====================================</div>
+
+<script> (function () {
+    tp = window["tp"] || [];
+
+    /* Checkout related */
+    /**
+     * Event properties
+     *
+     * chargeAmount - amount of purchase
+     * chargeCurrency
+     * uid
+     * email
+     * expires
+     * rid
+     * startedAt
+     * termConversionId
+     * termId
+     * promotionId
+     * token_list
+     * cookie_domain
+     * user_token
+     *
+     */
+    function onCheckoutComplete(data) {
+    }
+
+    function onCheckoutExternalEvent() {
+    }
+
+    function onCheckoutClose(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        if (event && event.state == "checkoutCompleted") {
+            location.reload();
+        }
+    }
+
+    function onCheckoutCancel() {
+    }
+
+    function onCheckoutError() {
+    }
+
+    function onCheckoutSubmitPayment() {
+    }
+
+    /* Meter callback */
+    function onMeterExpired() {
+
+    }
+
+    /* Meter callback */
+    function onMeterActive() {
+
+    }
+
+    /* Callback executed when a user must login */
+    function onLoginRequired() {
+        // this is a reference implementation only
+        // your own custom login/registration implementation would
+        // need to return the tinypass-compatible userRef inside the callback
+
+        // mysite.showLoginRegistration(function (tinypassUserRef)
+        // tp.push(["setUserRef", tinypassUserRef]); // tp.offer.startCheckout(params); // }
+        // this will prevent the tinypass error screen from displaying
+
+        return false;
+    }
+
+    /* Callback executed after a tinypassAccounts login */
+    function onLoginSuccess() {
+    }
+
+    /* Callback executed after an experience executed successfully */
+    function onExperienceExecute(event) {
+    }
+
+    /* Callback executed if experience execution has been failed */
+    function onExperienceExecutionFailed(event) {
+    }
+
+    /* Callback executed if external checkout has been completed successfully */
+    function onExternalCheckoutComplete(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        location.reload();
+    }
+
+    tp.push(["setAid", '7bFLYKurpu']);
+    tp.push(["setEndpoint", 'https://buy.tinypass.com/api/v3']);
+    tp.push(["setUseTinypassAccounts", false ]);
+
+    tp.push(["setUsePianoIdUserProvider", true]);
+    tp.push(["setPianoIdUrl", "/"])
+
+    //tp.push(["setComposerHost", "https://c2.piano.io/"]);
+    tp.push(['setPianoWidgetsUrl', 'https://ostap-widgets-prod.piano.io/pn-widget/sdk.js']);
+
+    tp.push(["setUseTinypassAccounts", false ]);
+    tp.push(["setUsePianoIdUserProvider", true ]);
+
+    /* checkout related events */
+    tp.push(["addHandler", "checkoutComplete", onCheckoutComplete]);
+    tp.push(["addHandler", "checkoutClose", onCheckoutClose]);
+    tp.push(["addHandler", "checkoutCustomEvent", onCheckoutExternalEvent]);
+    tp.push(["addHandler", "checkoutCancel", onCheckoutCancel]);
+    tp.push(["addHandler", "checkoutError", onCheckoutError]);
+    tp.push(["addHandler", "checkoutSubmitPayment", onCheckoutSubmitPayment]);
+
+    /* user login events */
+    tp.push(["addHandler", "loginRequired", onLoginRequired]);
+    tp.push(["addHandler", "loginSuccess", onLoginSuccess]);
+
+    /* meter related */
+    tp.push(["addHandler", "meterExpired", onMeterExpired]);
+    tp.push(["addHandler", "meterActive", onMeterActive]);
+
+    tp.push(["addHandler", "experienceExecute", onExperienceExecute]);
+    tp.push(["addHandler", "experienceExecutionFailed", onExperienceExecutionFailed]);
+
+    /* external checkout related events */
+    tp.push(["addHandler", "externalCheckoutComplete", onExternalCheckoutComplete]);
+
+    tp.push(["init", function () {
+        tp.experience.init()
+    }]);
+})();
+</script>
+<script>
+    // do not change this section
+    // |BEGIN INCLUDE TINYPASS JS|
+    (function(src){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=src;var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})("https://cdn.tinypass.com/api/tinypass.min.js");
+    // |END   INCLUDE TINYPASS JS|
+</script>
+
+    
+  </body>
+</html>
