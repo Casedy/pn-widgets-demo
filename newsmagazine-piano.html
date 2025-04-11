@@ -160,7 +160,7 @@
       const predefinedData = {};
       const modifiers = {};
 
-      Promise.all([documentReady, loadScript('https://buy.tinypass.com/pn-widget/sdk.js'), loadScript("https://cdn.tinypass.com/api/tinypass.min.js")])
+      Promise.all([documentReady, loadScript("https://cdn.tinypass.com/api/tinypass.min.js")])
         .then(()=>{
             tp = window["pn"] || [];
             tp.push(["setAid", applicationId]);
