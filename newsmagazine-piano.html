@@ -153,68 +153,44 @@
 
       const applicationId = "7bFLYKurpu";
       const offerId = "OF14JI47IM9O";
+      const elementIdOffer = "eb5e49ed-8af7-457f-8307-ae8a018f3f8a";
+      const templateIdOffer = "GT4XXVBFADZU";
+      const elementOfferName = "Offer";
+      const containerSelector = ".container-1";
+      const predefinedData = {};
+      const modifiers = {};
 
-      Promise.all([documentReady, loadScript('https://ostap-widgets-prod.piano.io/pn-widget/sdk.js')])
+      Promise.all([documentReady, loadScript('https://buy.tinypass.com/pn-widget/sdk.js'), loadScript("https://cdn.tinypass.com/api/tinypass.min.js")])
         .then(()=>{
-          const piano = new Piano(applicationId);
-          const elementIdOffer = "eb5e49ed-8af7-457f-8307-ae8a018f3f8a";
-          // const templateIdOffer = "GTGJ1UDFHAUT";
-          const templateIdOffer = "GT4XXVBFADZU";
-          const elementOfferName = "Offer";
-          const containerSelector = ".container-1";
-          const predefinedData = {};
-          const modifiers = {};
-            
-          const elementOffer = piano.showElement({
-            elementId: templateIdOffer,
-            elementName: elementOfferName,
-            container: {
-              selector: containerSelector,
-              elementDisplayType: "shadow",
-              appearance: {
-                type: "inline",
-                options: {
-                  isBackdropVisible: true,
-                  isCloseButtonVisible: false,
-                  isCloseOnBackdropClick: true,
-                  isPageScrollDisabled: true,
-                  maxWidth: "740px",
-                  maxHeight: "1261px",
-                  position: { left: "50%", top: "50%" },
-                },
-              },
-            },
-            predefinedData: {
-              applicationId,
-              offerId
-            },
-          });
-
-          elementOffer.then((inst)=>{
-            inst.listen("offerSubscribe", ({ data })=>{
-              console.log("dispatched signal", "offerSubscribe", data);
-            });
-            inst.listen("startClassicCheckout", ({ data })=>{
-              console.log("startClassicCheckout", data.termId)
-              const pn$ = !window.pn ? (()=>{
-                tp = window["pn"] || [];
-                tp.push(["setAid", applicationId]);
-                tp.push(["setEndpoint", "https://buy.tinypass.com/api/v3"]);
-                tp.push(['setUsePianoIdUserProvider', true ]);
-                tp.push(['setPianoIdUrl', '/']);
-                return loadScript("https://cdn.tinypass.com/api/tinypass.min.js")
-              })() : Promise.resolve();
-
-              pn$.then(()=>{
-                var config = {
-                  offerId: data.offerId,
-                  termId: data.termId,
-                  displayMode: 'modal'
-                };
-                window.pn.offer.show(config);
-              })
-            })
-          })
+            tp = window["pn"] || [];
+            tp.push(["setAid", applicationId]);
+            tp.push(["setEndpoint", "https://buy.tinypass.com/api/v3"]);
+            tp.push(['setUsePianoIdUserProvider', true ]);
+            tp.push(['setPianoIdUrl', '/']);
+            tp.push(['init', () => {
+                tp.pianoWidgets.showPianoWidget({
+                    aid: applicationId,
+                    templateId: templateIdOffer,
+                    pianoWidgetElementName: elementOfferName,
+                    containerSelector,
+                    displayMode: "inline",
+                    templateVariantId: undefined,
+                }).then(element => {
+                    inst.listen("offerSubscribe", ({ data })=>{
+                      console.log("dispatched signal", "offerSubscribe", data);
+                    });
+                    inst.listen("startClassicCheckout", ({ data })=>{
+                      console.log("startClassicCheckout", data.termId); 
+                        var config = {
+                          offerId: data.offerId,
+                          termId: data.termId,
+                          displayMode: 'modal'
+                        };
+                        window.pn.offer.show(config);
+                      
+                    })
+                });
+            ]);
         })
     </script>
 </head>
