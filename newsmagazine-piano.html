@@ -176,10 +176,10 @@
                     displayMode: "inline",
                     templateVariantId: undefined,
                 }).then(element => {
-                    inst.listen("offerSubscribe", ({ data })=>{
+                    element.listen("offerSubscribe", ({ data })=>{
                       console.log("dispatched signal", "offerSubscribe", data);
                     });
-                    inst.listen("startClassicCheckout", ({ data })=>{
+                    element.listen("startClassicCheckout", ({ data })=>{
                       console.log("startClassicCheckout", data.termId); 
                         var config = {
                           offerId: data.offerId,
