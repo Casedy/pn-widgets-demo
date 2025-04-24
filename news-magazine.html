@@ -200,6 +200,7 @@
                 tp = window["pn"] || [];
                 tp.push(["setAid", applicationId]);
                 tp.push(["setEndpoint", "https://buy.tinypass.com/api/v3"]);
+                tp.push(["pianoWidgetsUrl", "https://buy.piano.io"]);
                 tp.push(['setUsePianoIdUserProvider', true ]);
                 tp.push(['setPianoIdUrl', '/']);
                 return loadScript("https://cdn.tinypass.com/api/tinypass.min.js")
