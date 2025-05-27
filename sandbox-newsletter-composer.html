@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Express Static Server newsletter composer</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            color: #2c3e50;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .header .date {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .column {
+            padding: 15px;
+        }
+
+        .article {
+            margin-bottom: 30px;
+        }
+
+        .article img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .article h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .article p {
+            color: #444;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .usa-news {
+            border-right: 2px solid #ddd;
+            padding-right: 30px;
+        }
+
+        .china-news {
+            padding-left: 30px;
+        }
+
+        .category-label {
+            display: inline-block;
+            background-color: #c0392b;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            border-radius: 3px;
+        }
+
+        .highlight {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #c0392b;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .usa-news, .china-news {
+                border: none;
+                padding: 0;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+        }
+        .container-1 {
+            height: 1261px;
+        }
+    </style>
+  </head>
+  <body>
+
+
+    <div class="container">
+        <header class="header">
+            <h1>The Global Chronicle</h1>
+            <div class="subtitle">World News | Politics | Business | Technology</div>
+            <div class="date">Saturday, November 18, 2023 | Vol. 54 No. 12</div>
+        </header>
+
+        <main class="main-content">
+            <section class="column usa-news">
+                <div class="article">
+                    <span class="category-label">USA POLITICS</span>
+                    <h2>Biden Meets with Congressional Leaders to Avert Government Shutdown</h2>
+                    <img src="https://thumbs.dreamstime.com/b/mobile-news-application-smartphone-man-reading-online-news-website-cellphone-person-browsing-latest-articles-131140526.jpg" alt="US Capitol">
+                    <p>WASHINGTON - President Joe Biden convened an emergency meeting with congressional leaders from both parties today in an effort to break the impasse over government funding ahead of Friday's shutdown deadline. Negotiations continue as lawmakers debate spending levels for defense and domestic programs.</p>
+                    <div class="highlight">
+                        <p>"We need to put politics aside and do what's right for the American people," Biden told reporters before entering the Oval Office meeting.</p>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <span class="category-label">TECHNOLOGY</span>
+                    <h2>NASA Announces New Moon Mission Partners</h2>
+                    <img src="https://thumbs.dreamstime.com/b/news-red-white-letters-letterings-34538996.jpg?w=400" alt="Moon mission">
+                    <p>CAPE CANAVERAL - NASA has selected three private companies to develop lunar landers for future Artemis missions. This move signals increased collaboration between government and commercial space sectors in the new space race.</p>
+                </div>
+            </section>
+
+            <section class="column china-news">
+                <div class="article">
+                    <span class="category-label">CHINA ECONOMY</span>
+                    <h2>Beijing Unveils New Stimulus Package to Boost Slowing Economy</h2>
+                    <img src="https://thumbs.dreamstime.com/b/news-woodn-dice-depicting-letters-bundle-small-newspapers-leaning-left-dice-34802664.jpg" alt="Beijing city">
+                    <p>BEIJING - Chinese policymakers announced a comprehensive 500 billion yuan ($68 billion) economic stimulus package today, focusing on tax cuts for small businesses and infrastructure spending. This comes amid concerns about slowing growth and the property market crisis.</p>
+                </div>
+
+                <div class="article">
+                    <div class="container-1"></div>
+                </div>
+
+                <div class="article">
+                    <span class="category-label">DIPLOMACY</span>
+                    <h2>China-US Relations: Trade Talks Resume After 6-Month Hiatus</h2>
+                    <img src="https://thumbs.dreamstime.com/b/breaking-news-media-announcement-social-concept-78546305.jpg" alt="Flags of US and China">
+                    <p>SHANGHAI - Senior trade officials from the United States and China began new round of negotiations today, focusing on technology transfers and tariffs. Both sides expressed cautious optimism but acknowledged significant differences remain.</p>
+                    <div class="highlight">
+                        <p>"We're committed to finding solutions that benefit both nations," said Chinese lead negotiator Vice Premier Liu He.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+<script> (function () {
+    tp = window["tp"] || [];
+
+    /* Checkout related */
+    /**
+     * Event properties
+     *
+     * chargeAmount - amount of purchase
+     * chargeCurrency
+     * uid
+     * email
+     * expires
+     * rid
+     * startedAt
+     * termConversionId
+     * termId
+     * promotionId
+     * token_list
+     * cookie_domain
+     * user_token
+     *
+     */
+    function onCheckoutComplete(data) {
+    }
+
+    function onCheckoutExternalEvent() {
+    }
+
+    function onCheckoutClose(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        if (event && event.state == "checkoutCompleted") {
+            location.reload();
+        }
+    }
+
+    function onCheckoutCancel() {
+    }
+
+    function onCheckoutError() {
+    }
+
+    function onCheckoutSubmitPayment() {
+    }
+
+    /* Meter callback */
+    function onMeterExpired() {
+
+    }
+
+    /* Meter callback */
+    function onMeterActive() {
+
+    }
+
+    /* Callback executed when a user must login */
+    function onLoginRequired() {
+        // this is a reference implementation only
+        // your own custom login/registration implementation would
+        // need to return the tinypass-compatible userRef inside the callback
+
+        // mysite.showLoginRegistration(function (tinypassUserRef)
+        // tp.push(["setUserRef", tinypassUserRef]); // tp.offer.startCheckout(params); // }
+        // this will prevent the tinypass error screen from displaying
+
+        return false;
+    }
+
+    /* Callback executed after a tinypassAccounts login */
+    function onLoginSuccess() {
+    }
+
+    /* Callback executed after an experience executed successfully */
+    function onExperienceExecute(event) {
+    }
+
+    /* Callback executed if experience execution has been failed */
+    function onExperienceExecutionFailed(event) {
+    }
+
+    /* Callback executed if external checkout has been completed successfully */
+    function onExternalCheckoutComplete(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        location.reload();
+    }
+
+    tp.push(["setAid", 'TVUKLNHtsu']);
+    tp.push(["setEndpoint", 'https://sandbox.tinypass.com/api/v3']);
+    tp.push(['setPianoIdUrl', 'https://sandbox.piano.io']);
+    tp.push(["setEspEndpoint", 'https://sandbox-api-esp.piano.io']);
+  
+    tp.push(["setUseTinypassAccounts", false ]);
+    tp.push(["setUsePianoIdUserProvider", true]);
+    tp.push(["setPianoIdUrl", "/"])
+
+    //tp.push(["setComposerHost", "https://c2.piano.io/"]);
+
+    tp.push(["setUseTinypassAccounts", false ]);
+    tp.push(["setUsePianoIdUserProvider", true ]);
+
+    /* checkout related events */
+    tp.push(["addHandler", "checkoutComplete", onCheckoutComplete]);
+    tp.push(["addHandler", "checkoutClose", onCheckoutClose]);
+    tp.push(["addHandler", "checkoutCustomEvent", onCheckoutExternalEvent]);
+    tp.push(["addHandler", "checkoutCancel", onCheckoutCancel]);
+    tp.push(["addHandler", "checkoutError", onCheckoutError]);
+    tp.push(["addHandler", "checkoutSubmitPayment", onCheckoutSubmitPayment]);
+
+    /* user login events */
+    tp.push(["addHandler", "loginRequired", onLoginRequired]);
+    tp.push(["addHandler", "loginSuccess", onLoginSuccess]);
+
+    /* meter related */
+    tp.push(["addHandler", "meterExpired", onMeterExpired]);
+    tp.push(["addHandler", "meterActive", onMeterActive]);
+
+    tp.push(["addHandler", "experienceExecute", onExperienceExecute]);
+    tp.push(["addHandler", "experienceExecutionFailed", onExperienceExecutionFailed]);
+
+    /* external checkout related events */
+    tp.push(["addHandler", "externalCheckoutComplete", onExternalCheckoutComplete]);
+
+    tp.push(["init", function () {
+        tp.experience.init()
+    }]);
+})();
+</script>
+<script>
+    // do not change this section
+    // |BEGIN INCLUDE TINYPASS JS|
+    (function(src){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=src;var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})("https://sandbox.tinypass.com/api/tinypass.min.js");
+    // |END   INCLUDE TINYPASS JS|
+</script>
+
+    
+  </body>
+</html>
