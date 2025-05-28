@@ -154,7 +154,7 @@
       const applicationId = "7bFLYKurpu";
       const offerId = "OFKKK8RM340P";
 
-      Promise.all([documentReady, loadScript('https://buy.tinypass.com/pn-widget/sdk.js')])
+      Promise.all([documentReady, loadScript('https://buy.piano.io/pn-widget/sdk.js')])
         .then(()=>{
           const piano = new Piano(applicationId);
           const elementIdOffer = "eb5e49ed-8af7-457f-8307-ae8a018f3f8a";
@@ -199,10 +199,10 @@
               const pn$ = !window.pn ? (()=>{
                 tp = window["pn"] || [];
                 tp.push(["setAid", applicationId]);
-                tp.push(["setEndpoint", "https://buy.tinypass.com/api/v3"]);
+                tp.push(["setEndpoint", "https://buy.piano.io/api/v3"]);
                 tp.push(['setUsePianoIdUserProvider', true ]);
                 tp.push(['setPianoIdUrl', '/']);
-                return loadScript("https://cdn.tinypass.com/api/tinypass.min.js")
+                return loadScript("https://cdn.piano.io/api/tinypass.min.js")
               })() : Promise.resolve();
 
               pn$.then(()=>{
